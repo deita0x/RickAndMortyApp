@@ -1,21 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import AppContainer from '@navigation';
+import { ApolloProvider } from "react-apollo";
+import { Font } from 'expo';
+import { Fonts } from '@assets';
+import { client } from '@api';
 
 export default class App extends React.Component {
+  state = {
+    fontLoaded: false,
+  };
+
+  async componentWillMount() {
+    await Font.loadAsync({
+      'Montserrat-Regular': Fonts.montserratRegular,
+      'Montserrat-SemiBold': Fonts.montserratSemiBold,
+    });
+
+    this.setState({ fontLoaded: true });
+  }
+
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
+    if (this.state.fontLoaded) {
+      return (
+        <ApolloProvider client={client}>
+          <AppContainer />
+        </ApolloProvider>
+      );
+    } else {
+      return null;
+    }
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
