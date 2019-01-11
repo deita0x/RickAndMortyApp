@@ -9,6 +9,7 @@ Application that shows information of the Rick and Morty series. This app is bui
 And use the [Rick and Morty](https://rickandmortyapi.com/about) GraphQL API 
 
 ## Run locally with Expo
+- Install `expo-cli` see instructions [here](https://docs.expo.io/versions/latest/introduction/installation.html)
 - Clone the repository
 - Run `npm i` to install the dependencies
 - Run `expo start`
