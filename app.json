@@ -24,6 +24,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "Application that shows information of the Rick and Morty series.",
+    "githubUrl": "https://github.com/deita0x/RickAndMortyApp"
   }
 }
